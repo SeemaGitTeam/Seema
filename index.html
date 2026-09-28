@@ -9,9 +9,14 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Seema — the mark that makes the difference">
 <meta property="og:description" content="We help ambitious businesses in Qatar and the Gulf find what makes them different, then make it impossible to miss.">
+<link rel="icon" type="image/svg+xml" href="assets/mark-inktile.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=El+Messiri:wght@500;600;700&family=Tajawal:wght@400;500;700&family=JetBrains+Mono:wght@500;600&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --indigo:#1B1847;
@@ -99,6 +104,23 @@ html[dir="rtl"] .lang-toggle{font-family:var(--f-ar-body)}
 .lang-toggle:hover{background:var(--indigo);color:var(--cloud);border-color:var(--indigo)}
 .menu-toggle{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;color:var(--indigo)}
 .menu-toggle svg{width:24px;height:24px}
+
+/* mobile sticky CTA ---------------------------------------------------------*/
+.mobile-cta{display:none}
+@media(max-width:720px){
+  .mobile-cta{
+    display:flex;gap:10px;position:fixed;inset-inline:0;bottom:0;z-index:70;
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:rgba(247,245,240,.92);backdrop-filter:blur(14px);
+    border-top:1px solid var(--line);
+    transform:translateY(100%);transition:transform .3s var(--ease);
+  }
+  .mobile-cta.show{transform:none}
+  .mobile-cta .btn-saffron{flex:1;justify-content:center}
+  .mobile-cta-call{padding:14px;flex:none}
+  .mobile-cta-call svg{width:18px;height:18px;margin:0}
+  body.nav-open .mobile-cta{transform:translateY(100%)}
+}
 
 /* hero --------------------------------------------------------------------*/
 .hero{position:relative;padding:150px 0 88px;overflow:hidden}
@@ -305,6 +327,15 @@ footer{background:var(--indigo-2);color:#C9C4E6;padding:70px 0 30px}
     </button>
   </div>
 </header>
+
+<div class="mobile-cta" id="mobileCta">
+  <a class="btn btn-saffron" href="mailto:hello@seema.qa">
+    <span class="en">Start a project</span><span class="ar" dir="rtl" lang="ar">ابدأ مشروعك</span>
+  </a>
+  <a class="btn btn-ghost mobile-cta-call" href="tel:+97470009217" aria-label="Call Seema">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.5 21 3 14.5 3 6a2 2 0 0 1 1-2Z"/></svg>
+  </a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -651,6 +682,7 @@ footer{background:var(--indigo-2);color:#C9C4E6;padding:70px 0 30px}
       </div>
       <div class="contact-list">
         <a href="mailto:hello@seema.qa"><span class="k mono en">Email</span><span class="k ar" dir="rtl" lang="ar">البريد الإلكتروني</span><span class="v">hello@seema.qa</span></a>
+        <a href="tel:+97470009217"><span class="k mono en">Phone</span><span class="k ar" dir="rtl" lang="ar">الهاتف</span><span class="v mono">+974 7000 9217</span></a>
         <a href="https://seema.qa" target="_blank" rel="noopener"><span class="k mono en">Website</span><span class="k ar" dir="rtl" lang="ar">الموقع</span><span class="v mono">seema.qa</span></a>
         <a href="#top"><span class="k mono en">Based in</span><span class="k ar" dir="rtl" lang="ar">المقر</span><span class="v"><span class="en">Doha, Qatar</span><span class="ar" dir="rtl" lang="ar">الدوحة، قطر</span></span></a>
       </div>
@@ -687,6 +719,7 @@ footer{background:var(--indigo-2);color:#C9C4E6;padding:70px 0 30px}
       <div class="fcol">
         <h4><span class="en">Contact</span><span class="ar" dir="rtl" lang="ar">تواصل</span></h4>
         <a href="mailto:hello@seema.qa">hello@seema.qa</a>
+        <a href="tel:+97470009217">+974 7000 9217</a>
         <a href="https://seema.qa" target="_blank" rel="noopener">seema.qa</a>
         <span><span class="en">Doha, Qatar</span><span class="ar" dir="rtl" lang="ar">الدوحة، قطر</span></span>
       </div>
@@ -724,7 +757,17 @@ footer{background:var(--indigo-2);color:#C9C4E6;padding:70px 0 30px}
 
   // language toggle — a real page-wide switch, not simultaneous bilingual
   var langToggle = document.getElementById('langToggle');
+  var arFontsLoaded = false;
+  function loadArabicFonts(){
+    if (arFontsLoaded) return;
+    arFontsLoaded = true;
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Tajawal:wght@400;500;700&display=swap';
+    document.head.appendChild(link);
+  }
   function setLang(lang){
+    if (lang === 'ar') loadArabicFonts();
     document.documentElement.lang = lang;
     document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
     langToggle.textContent = (lang === 'ar') ? 'English' : 'العربية';
@@ -746,6 +789,14 @@ footer{background:var(--indigo-2);color:#C9C4E6;padding:70px 0 30px}
       heroGlow.style.transform = 'translate(' + x + 'px,' + y + 'px)';
     });
   }
+
+  // mobile sticky CTA — appears once the hero scrolls out of view
+  var mobileCta = document.getElementById('mobileCta');
+  var heroSection = document.getElementById('top');
+  var ctaIo = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ mobileCta.classList.toggle('show', !e.isIntersecting); });
+  }, {threshold: 0});
+  ctaIo.observe(heroSection);
 
   // scroll reveal
   var io = new IntersectionObserver(function(entries){
