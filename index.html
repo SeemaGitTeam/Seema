@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seema</title>
+<meta name="description" content="Seema — a Doha consultancy that finds what makes ambitious Gulf brands different, then makes it impossible to miss. Consultations, branding, and websites, in Arabic and English together.">
+<meta name="theme-color" content="#1B1847">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Seema — the mark that makes the difference">
+<meta property="og:description" content="We help ambitious businesses in Qatar and the Gulf find what makes them different, then make it impossible to miss.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=El+Messiri:wght@500;600;700&family=Tajawal:wght@400;500;700&family=JetBrains+Mono:wght@500;600&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#1B1847;
+  --indigo-2:#26225A;
+  --saffron:#E87722;
+  --saffron-deep:#B4520E;
+  --cloud:#F7F5F0;
+  --ash:#5F5B80;
+  --mist:#EEEBF3;
+  --qahwa:#F6DDB8;
+  --line: rgba(27,24,71,.12);
+  --line-soft: rgba(27,24,71,.07);
+  --bone-line: rgba(247,245,240,.16);
+  --f-display:'Manrope',system-ui,sans-serif;
+  --f-body:'Manrope',system-ui,sans-serif;
+  --f-ar-display:'El Messiri','Manrope',serif;
+  --f-ar-body:'Tajawal','Manrope',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,'SFMono-Regular',monospace;
+  --f-ruqaa:'Aref Ruqaa','Traditional Arabic','Manrope',serif;
+  --maxw:1180px;
+  --r-card:20px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cloud); color:var(--indigo);
+  font-family:var(--f-body); font-weight:400; line-height:1.6;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--saffron);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
+h1,h2,h3{font-family:var(--f-display);color:var(--indigo);line-height:1.12;letter-spacing:-.01em;margin:0;text-wrap:balance}
+p{margin:0}
+.mono{font-family:var(--f-mono)}
+
+/* language toggle -----------------------------------------------------------
+   Only one language shows at a time — a real page-wide switch, not a
+   simultaneous bilingual layout.                                          */
+html:not([dir="rtl"]) .ar{display:none}
+html[dir="rtl"] .en{display:none}
+html[dir="rtl"]{--f-display:var(--f-ar-display);--f-body:var(--f-ar-body)}
+html[dir="rtl"] .mono{font-family:var(--f-ar-body)}
+html[dir="rtl"] .eyebrow,html[dir="rtl"] .belief-card h3,html[dir="rtl"] .contact-list .k,
+html[dir="rtl"] .fcol h4,html[dir="rtl"] .chal-tag,html[dir="rtl"] .letters-cap{font-family:var(--f-ar-body);letter-spacing:0}
+html[dir="rtl"] .btn svg{transform:scaleX(-1)}
+html[dir="rtl"] .btn-saffron:hover svg{transform:scaleX(-1) translateX(3px)}
+
+/* eyebrow / labels ------------------------------------------------------- */
+.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ash)}
+.point-mark{width:15px;height:15px;flex:none;transform:scale(0) rotate(-8deg);transition:transform .55s var(--ease) .05s;filter:drop-shadow(0 1px 1px rgba(0,0,0,.12))}
+.reveal.in .point-mark{transform:scale(1) rotate(-8deg)}
+
+/* scroll progress ---------------------------------------------------------*/
+.scroll-progress{position:fixed;top:0;inset-inline:0;height:3px;width:0%;background:linear-gradient(90deg,var(--saffron),var(--saffron-deep));z-index:200}
+
+/* buttons ---------------------------------------------------------------- */
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;padding:14px 26px;border-radius:100px;border:1.5px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);white-space:nowrap;font-family:var(--f-body)}
+.btn svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.btn-saffron{background:var(--saffron);color:#fff}
+.btn-saffron:hover{background:var(--saffron-deep);transform:translateY(-2px)}
+.btn-saffron:hover svg{transform:translateX(3px)}
+.btn-ink{background:var(--indigo);color:var(--cloud)}
+.btn-ink:hover{background:var(--indigo-2);transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line);color:var(--indigo)}
+.btn-ghost:hover{background:var(--indigo);color:var(--cloud);border-color:var(--indigo)}
+
+/* header ------------------------------------------------------------------*/
+header{position:fixed;inset-inline:0;top:0;z-index:80;transition:background .3s var(--ease),box-shadow .3s var(--ease)}
+header.scrolled{background:rgba(247,245,240,.88);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.brand{display:block}
+.logo-img{height:26px;width:auto}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a.link{font-weight:600;font-size:14.5px;color:var(--indigo);position:relative;padding-block:4px}
+.nav a.link::after{content:"";position:absolute;inset-inline-start:0;bottom:0;width:0;height:2px;background:var(--saffron);transition:width .25s var(--ease)}
+.nav a.link:hover::after{width:100%}
+.lang-toggle{background:none;border:1.5px solid var(--line);color:var(--indigo);font-family:var(--f-mono);font-size:12px;font-weight:600;letter-spacing:.04em;padding:8px 14px;border-radius:100px;cursor:pointer;transition:.25s var(--ease)}
+html[dir="rtl"] .lang-toggle{font-family:var(--f-ar-body)}
+.lang-toggle:hover{background:var(--indigo);color:var(--cloud);border-color:var(--indigo)}
+.menu-toggle{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;color:var(--indigo)}
+.menu-toggle svg{width:24px;height:24px}
+
+/* hero --------------------------------------------------------------------*/
+.hero{position:relative;padding:150px 0 88px;overflow:hidden}
+.hero-glow{position:absolute;width:900px;height:900px;border-radius:50%;top:-420px;inset-inline-end:-320px;background:radial-gradient(circle at 40% 40%,rgba(27,24,71,.10),transparent 68%);pointer-events:none;z-index:0;transition:transform .4s var(--ease)}
+.hero .wrap{position:relative;z-index:2;max-width:840px}
+.hero-h1{font-size:clamp(38px,6.6vw,74px);font-weight:800;margin:20px 0 26px}
+.hero-h1 .accent{color:var(--saffron-deep)}
+.hero p.lead{font-size:clamp(17px,2vw,20px);font-weight:400;color:var(--ash);max-width:52ch;margin-bottom:34px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.trust-row{display:flex;gap:34px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
+.trust-row div{display:flex;flex-direction:column;gap:3px}
+.trust-row b{font-family:var(--f-mono);font-size:19px;font-weight:600;color:var(--indigo)}
+.trust-row span{font-size:12px;color:var(--ash);font-weight:600}
+
+.bloom-veil{position:fixed;inset:0;z-index:300;pointer-events:none;display:flex;align-items:center;justify-content:center;background:transparent}
+.bloom-veil i{width:230vmax;height:230vmax;border-radius:50%;background:var(--saffron);opacity:0;animation:bloom 1.35s var(--ease) both;flex:none}
+@keyframes bloom{
+  0%{transform:scale(.006);opacity:0}
+  4%{opacity:1}
+  46%{transform:scale(1);opacity:1}
+  100%{transform:scale(1);opacity:0}
+}
+
+/* doha image band ----------------------------------------------------------*/
+.doha-band{position:relative;height:52vh;min-height:340px;max-height:520px;overflow:hidden}
+.doha-band-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;transform:scale(1.08);transition:transform 1.6s var(--ease)}
+.doha-band.in .doha-band-img{transform:scale(1)}
+.doha-band-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,24,71,.05) 30%,rgba(27,24,71,.6) 100%)}
+.doha-band-cap{position:absolute;inset-inline:0;bottom:34px}
+.doha-band-cap p{color:#fff;font-size:clamp(15px,1.7vw,20px);font-weight:700}
+
+/* section scaffolding ---------------------------------------------------- */
+.band{padding-block:100px}
+.band-tight{padding-block:68px}
+.head{max-width:640px;margin-bottom:48px}
+.head h2{font-size:clamp(28px,4vw,42px);margin-top:12px}
+.head p{font-size:16.5px;color:var(--ash);margin-top:16px;max-width:56ch}
+
+/* challenges --------------------------------------------------------------*/
+.chal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.chal-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:26px 26px 24px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.chal-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -32px rgba(27,24,71,.35)}
+.chal-q{font-size:15px;color:var(--ash);font-style:italic}
+.chal-arrow{width:16px;height:16px;margin:13px 0;opacity:.9;transform:rotate(90deg)}
+.chal-a{font-size:15.5px;font-weight:700;color:var(--indigo);line-height:1.5}
+.chal-tag{display:block;margin-top:14px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--saffron-deep);font-family:var(--f-mono)}
+.chal-card.wide{grid-column:1/-1;background:var(--qahwa);border-color:transparent}
+.chal-official{display:inline-block;background:var(--indigo);color:var(--cloud);font-size:10px;letter-spacing:.08em;padding:5px 11px;border-radius:100px;margin-bottom:14px}
+
+/* belief ------------------------------------------------------------------*/
+.belief-lead{font-size:clamp(24px,3.2vw,36px);font-weight:700;max-width:18ch;margin-top:14px}
+.belief-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:48px}
+.belief-card{padding:26px 0;border-top:2px solid var(--indigo)}
+.belief-card h3{font-size:12.5px;font-family:var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--saffron-deep);margin-bottom:12px}
+.belief-card p{font-size:17px;font-weight:600;line-height:1.45}
+
+/* services ------------------------------------------------------------------*/
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.service{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:26px 22px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.service:hover{transform:translateY(-6px);box-shadow:0 26px 50px -34px rgba(27,24,71,.4);border-color:rgba(27,24,71,.22)}
+.service .top-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.service-icon{width:26px;height:26px;color:var(--indigo);transition:color .3s var(--ease)}
+.service.is-key .service-icon{color:var(--saffron)}
+.service:hover .service-icon{color:var(--saffron)}
+.service .num{font-family:var(--f-mono);font-size:12px;color:var(--ash);font-weight:600}
+.service h3{font-size:17px;margin-bottom:8px}
+.service .outcome{font-weight:700;font-size:14px;color:var(--saffron-deep);margin-bottom:8px;display:block}
+.service .desc{font-size:13.5px;color:var(--ash);line-height:1.6;display:block}
+
+/* why us / value grid -------------------------------------------------------*/
+.value-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:8px}
+.value-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:24px 20px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.value-card:hover{transform:translateY(-5px);box-shadow:0 22px 44px -30px rgba(27,24,71,.35)}
+.value-icon{width:23px;height:23px;color:var(--saffron);margin-bottom:14px}
+.value-card h3{font-size:15px;margin-bottom:6px;line-height:1.3}
+.value-card p{font-size:13px;color:var(--ash);line-height:1.6}
+.why-photo{display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:center;margin-top:48px;background:var(--mist);border-radius:var(--r-card);padding:18px;overflow:hidden}
+.why-photo img{width:100%;height:100%;max-height:300px;object-fit:cover;border-radius:14px;display:block}
+.why-photo .pull{font-size:19px;font-weight:700;color:var(--indigo);margin-bottom:8px}
+.why-photo p:not(.pull){font-size:14px;color:var(--ash);line-height:1.65}
+
+/* process ------------------------------------------------------------------*/
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
+.p-step{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:28px 24px;position:relative;z-index:1}
+.p-step .step-num{font-family:var(--f-mono);font-size:12px;color:var(--saffron-deep);letter-spacing:.1em}
+.p-step h3{font-size:18px;margin:12px 0 9px}
+.p-step p{font-size:13.5px;color:var(--ash);line-height:1.6}
+.p-step .step-tag{display:block;font-size:11px;color:var(--ash);text-transform:uppercase;letter-spacing:.06em;margin-top:13px;padding-top:13px;border-top:1px dashed var(--line)}
+@media(min-width:981px){
+  .process-steps::before{content:"";position:absolute;top:23px;left:4%;right:4%;height:2px;background:var(--line);transform-origin:left;transform:scaleX(0);transition:transform 1.2s var(--ease) .15s;z-index:0}
+  .process-steps.in::before{transform:scaleX(1)}
+}
+
+/* about / name story --------------------------------------------------------*/
+.about-body{max-width:640px}
+.about-body p.body-p{font-size:15.5px;color:var(--indigo);max-width:62ch;margin-top:14px}
+.letters-row{display:flex;gap:16px;margin-top:20px;flex-wrap:wrap;align-items:baseline}
+.letters-row span{font-family:var(--f-ruqaa);font-size:32px;color:var(--indigo-2)}
+.letters-cap{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ash);margin-inline-start:6px}
+
+/* contact ---------------------------------------------------------------*/
+.contact-card{
+  background:linear-gradient(135deg,rgba(27,24,71,.90),rgba(38,34,90,.94)),url("images/doha-fanar-night.jpg") center/cover;
+  border-radius:32px;padding:56px 50px;color:var(--cloud);display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center;position:relative;overflow:hidden}
+.contact-card::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.28),transparent 70%);inset-inline-end:-160px;bottom:-180px;pointer-events:none}
+.contact-card h2{color:#fff;font-size:clamp(26px,3.4vw,36px)}
+.contact-card p{color:#D7D2ED;margin-top:14px;font-size:16px;max-width:44ch}
+.contact-list{display:flex;flex-direction:column;gap:16px;position:relative;z-index:1}
+.contact-list a{display:flex;flex-direction:column;gap:2px;padding-block:13px;border-top:1px solid var(--bone-line)}
+.contact-list a:first-child{border-top:none}
+.contact-list .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--qahwa)}
+.contact-list .v{font-size:16.5px;font-weight:600;color:#fff}
+
+/* finale ------------------------------------------------------------------*/
+.finale{position:relative;background:var(--saffron);padding:140px 0 120px;overflow:hidden;text-align:center}
+.finale-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.22),transparent 60%);opacity:0;transition:opacity 1.1s var(--ease)}
+.finale.in .finale-bg{opacity:1}
+.finale .wrap{position:relative;max-width:960px}
+.finale .fin-logo{margin-inline:auto;width:min(92%,540px);height:auto;transform:scale(.92);opacity:0;transition:transform 1s var(--ease), opacity 1s var(--ease)}
+.finale.in .fin-logo{transform:scale(1);opacity:1}
+.finale .fin-tag{margin-top:32px;font-size:clamp(16px,1.9vw,21px);font-weight:600;color:#fff;opacity:0;transform:translateY(14px);transition:opacity .8s var(--ease) .25s, transform .8s var(--ease) .25s}
+.finale.in .fin-tag{opacity:1;transform:none}
+.finale .fin-url{margin-top:20px;font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;color:rgba(255,255,255,.85);opacity:0;transition:opacity .8s var(--ease) .4s}
+.finale.in .fin-url{opacity:1}
+
+/* footer ------------------------------------------------------------------*/
+footer{background:var(--indigo-2);color:#C9C4E6;padding:70px 0 30px}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.fbrand p{margin-top:16px;font-size:13.5px;max-width:38ch;color:#A29CC7;line-height:1.7}
+.fcol h4{color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:15px;font-weight:700;font-family:var(--f-mono)}
+.fcol a,.fcol span{display:block;font-size:14px;margin-bottom:10px;color:#C9C4E6}
+.fcol a:hover{color:#fff}
+.fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--bone-line);margin-top:48px;padding-top:22px;font-size:12px;color:#8C86B3}
+.fbot .type-credit{font-family:var(--f-mono)}
+
+/* reveal ------------------------------------------------------------------*/
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.stagger .reveal:nth-child(1){transition-delay:0s}
+.stagger .reveal:nth-child(2){transition-delay:.08s}
+.stagger .reveal:nth-child(3){transition-delay:.16s}
+.stagger .reveal:nth-child(4){transition-delay:.24s}
+.stagger .reveal:nth-child(5){transition-delay:.32s}
+.stagger .reveal:nth-child(6){transition-delay:.4s}
+.stagger .reveal:nth-child(7){transition-delay:.48s}
+
+/* responsive ----------------------------------------------------------------*/
+@media(max-width:980px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .belief-grid{grid-template-columns:1fr}
+  .value-grid{grid-template-columns:repeat(2,1fr)}
+  .process-steps{grid-template-columns:repeat(2,1fr)}
+  .chal-grid{grid-template-columns:1fr}
+  .contact-card{grid-template-columns:1fr}
+  .why-photo{grid-template-columns:1fr}
+  .why-photo img{max-height:220px}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .nav{position:fixed;inset-block:0;inset-inline-end:0;width:80%;max-width:320px;background:var(--cloud);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:100px 28px 30px;gap:20px;transform:translateX(100%);transition:transform .32s var(--ease);box-shadow:-20px 0 60px -30px rgba(0,0,0,.35)}
+  html[dir="rtl"] .nav{transform:translateX(-100%)}
+  body.nav-open .nav{transform:none}
+  body.nav-open{overflow:hidden}
+  .menu-toggle{display:flex;z-index:90}
+  .nav .btn{width:100%;justify-content:center}
+  .services-grid{grid-template-columns:1fr}
+  .value-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  .band{padding-block:68px}
+  .hero{padding:122px 0 60px}
+  .contact-card{padding:38px 24px}
+  .doha-band{height:38vh;min-height:260px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+  .bloom-veil{display:none}
+  .doha-band-img{transform:none!important}
+  .finale .fin-logo,.finale .fin-tag,.finale .fin-url{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="bloom-veil" id="bloomVeil" aria-hidden="true"><i></i></div>
+
+<header id="hdr">
+  <div class="bar wrap">
+    <a class="brand" href="#top" aria-label="Seema — home">
+      <img class="logo-img" src="assets/logo-horiz-ink.svg" alt="Seema · سيمة">
+    </a>
+    <nav class="nav" id="nav">
+      <a class="link" href="#why"><span class="en">Why us</span><span class="ar" dir="rtl" lang="ar">لماذا نحن</span></a>
+      <a class="link" href="#services"><span class="en">Services</span><span class="ar" dir="rtl" lang="ar">الخدمات</span></a>
+      <a class="link" href="#process"><span class="en">Process</span><span class="ar" dir="rtl" lang="ar">أسلوب العمل</span></a>
+      <a class="link" href="#contact"><span class="en">Contact</span><span class="ar" dir="rtl" lang="ar">تواصل</span></a>
+      <button class="lang-toggle" id="langToggle" type="button">العربية</button>
+      <a class="btn btn-ink" href="mailto:hello@seema.qa"><span class="en">Start a project</span><span class="ar" dir="rtl" lang="ar">ابدأ مشروعك</span></a>
+    </nav>
+    <button class="menu-toggle" id="toggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <span class="hero-glow" id="heroGlow" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="eyebrow reveal in">
+      <img class="point-mark" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+      <span class="en">Doha, Qatar · Est. 2026</span><span class="ar" dir="rtl" lang="ar">الدوحة، قطر · تأسست 2026</span>
+    </div>
+    <h1 class="hero-h1">
+      <span class="en">Every brand<br>has its <span class="accent">sima.</span></span>
+      <span class="ar" dir="rtl" lang="ar">لكل علامة<br><span class="accent">سِمتها</span>.</span>
+    </h1>
+    <p class="lead">
+      <span class="en">We help ambitious businesses in Qatar and the Gulf find what makes them different, then make it impossible to miss — in strategy, in identity, and online.</span>
+      <span class="ar" dir="rtl" lang="ar">نساعد الشركات الطموحة في قطر والخليج على اكتشاف ما يميّزها، ثم نجعل هذا التميّز واضحاً لا يخطئه أحد — في الاستراتيجية، والهوية، وعلى الإنترنت.</span>
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-saffron" href="mailto:hello@seema.qa">
+        <span class="en">Start a project</span><span class="ar" dir="rtl" lang="ar">ابدأ مشروعك</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#services"><span class="en">See what we do</span><span class="ar" dir="rtl" lang="ar">تعرّف على خدماتنا</span></a>
+    </div>
+    <div class="trust-row">
+      <div><b class="mono">2026</b><span class="en">Founded</span><span class="ar" dir="rtl" lang="ar">التأسيس</span></div>
+      <div><b class="mono">07</b><span class="en">Practices, one map</span><span class="ar" dir="rtl" lang="ar">ممارسات، خريطة واحدة</span></div>
+      <div><b class="mono">seema.qa</b><span class="en">Doha, Qatar</span><span class="ar" dir="rtl" lang="ar">الدوحة، قطر</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOHA IMAGE BAND -->
+<section class="doha-band" id="dohaBand">
+  <img class="doha-band-img" src="images/doha-nmoq.jpg" alt="National Museum of Qatar, Doha" loading="lazy">
+  <span class="doha-band-overlay" aria-hidden="true"></span>
+  <div class="doha-band-cap wrap">
+    <p><span class="en">Built in Doha. Built for the Gulf.</span><span class="ar" dir="rtl" lang="ar">صُنع في الدوحة، لأجل الخليج.</span></p>
+  </div>
+</section>
+
+<!-- BELIEF -->
+<section class="band band-tight" id="belief">
+  <div class="wrap">
+    <div class="eyebrow reveal">
+      <img class="point-mark" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+      <span class="en">What we believe</span><span class="ar" dir="rtl" lang="ar">ما نؤمن به</span>
+    </div>
+    <h2 class="belief-lead reveal"><span class="en">Define, don't decorate.</span><span class="ar" dir="rtl" lang="ar">نُعرِّف، لا نُزخرِف.</span></h2>
+    <div class="belief-grid stagger">
+      <div class="belief-card reveal">
+        <h3><span class="en">Purpose</span><span class="ar" dir="rtl" lang="ar">الغاية</span></h3>
+        <p><span class="en">To give ambitious businesses a brand that means something, and can prove it works.</span><span class="ar" dir="rtl" lang="ar">أن نمنح الشركات الطموحة علامة لها معنى، وقادرة على إثبات أنها تعمل.</span></p>
+      </div>
+      <div class="belief-card reveal">
+        <h3><span class="en">Vision</span><span class="ar" dir="rtl" lang="ar">الرؤية</span></h3>
+        <p><span class="en">A region where the strongest brands are built here, on their own terms.</span><span class="ar" dir="rtl" lang="ar">منطقة تُبنى فيها أقوى العلامات هنا، بشروطها الخاصة.</span></p>
+      </div>
+      <div class="belief-card reveal">
+        <h3><span class="en">Promise</span><span class="ar" dir="rtl" lang="ar">الوعد</span></h3>
+        <p><span class="en">Every client leaves with a mark that is clearly, only theirs.</span><span class="ar" dir="rtl" lang="ar">كل عميل يغادر بعلامة واضحة، وله وحده.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHALLENGES -->
+<section class="band" id="challenges">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow reveal">
+        <img class="point-mark" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+        <span class="en">The challenges we solve</span><span class="ar" dir="rtl" lang="ar">التحديات التي نحلّها</span>
+      </div>
+      <h2 class="reveal"><span class="en">Sound familiar?</span><span class="ar" dir="rtl" lang="ar">هل هذا يبدو مألوفاً؟</span></h2>
+      <p class="reveal"><span class="en">Six problems we hear most from growing businesses in Qatar — and exactly how we fix them.</span><span class="ar" dir="rtl" lang="ar">ستة تحديات نسمعها كثيراً من الشركات النامية في قطر — وكيف نحلّها بالضبط.</span></p>
+    </div>
+    <div class="chal-grid stagger">
+
+      <div class="chal-card reveal">
+        <p class="chal-q"><span class="en">"Our brand looks like everyone else's in the market."</span><span class="ar" dir="rtl" lang="ar">"علامتنا تشبه الجميع في السوق."</span></p>
+        <img class="chal-arrow" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+        <p class="chal-a"><span class="en">We find the one thing that's actually different about you, then build an identity around it — not a template.</span><span class="ar" dir="rtl" lang="ar">نكتشف الشيء الوحيد المختلف فعلاً فيك، ثم نبني الهوية حوله — لا قالباً جاهزاً.</span></p>
+        <span class="chal-tag"><span class="en">Consultations · Branding</span><span class="ar" dir="rtl" lang="ar">الاستشارات · الهوية التجارية</span></span>
+      </div>
+
+      <div class="chal-card reveal">
+        <p class="chal-q"><span class="en">"Our website barely works in Arabic — or doesn't exist at all."</span><span class="ar" dir="rtl" lang="ar">"موقعنا بالكاد يعمل بالعربية — أو غير موجود أصلاً."</span></p>
+        <img class="chal-arrow" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+        <p class="chal-a"><span class="en">We design and build bilingual from day one — never a translation bolted on afterward.</span><span class="ar" dir="rtl" lang="ar">نصمم ونبني بلغتين منذ اليوم الأول — لا ترجمة مضافة لاحقاً.</span></p>
+        <span class="chal-tag"><span class="en">Website Development</span><span class="ar" dir="rtl" lang="ar">تطوير المواقع</span></span>
+      </div>
+
+      <div class="chal-card reveal">
+        <p class="chal-q"><span class="en">"We spend on marketing but can't tell what's actually working."</span><span class="ar" dir="rtl" lang="ar">"ننفق على التسويق، لكن لا نعرف ما الذي ينجح فعلاً."</span></p>
+        <img class="chal-arrow" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+        <p class="chal-a"><span class="en">Campaigns built around one clear result, with reporting that shows what's working and what isn't.</span><span class="ar" dir="rtl" lang="ar">حملات مبنية حول نتيجة واضحة، مع تقارير تُظهر ما ينجح وما لا ينجح.</span></p>
+        <span class="chal-tag"><span class="en">Digital Marketing</span><span class="ar" dir="rtl" lang="ar">التسويق الرقمي</span></span>
+      </div>
+
+      <div class="chal-card reveal">
+        <p class="chal-q"><span class="en">"Our team juggles spreadsheets, WhatsApp, and tools that don't talk to each other."</span><span class="ar" dir="rtl" lang="ar">"فريقنا يوازن بين جداول البيانات والواتساب وأدوات لا تتواصل مع بعضها."</span></p>
+        <img class="chal-arrow" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+        <p class="chal-a"><span class="en">One system — ERP, CRM and the automation between them — built around how you actually work.</span><span class="ar" dir="rtl" lang="ar">نظام واحد — ERP وCRM وأتمتة تربط بينها — مبني على طريقة عملكم الفعلية.</span></p>
+        <span class="chal-tag"><span class="en">Business Applications</span><span class="ar" dir="rtl" lang="ar">تطبيقات الأعمال</span></span>
+      </div>
+
+      <div class="chal-card reveal">
+        <p class="chal-q"><span class="en">"Customers expect an app, but we don't know where to start."</span><span class="ar" dir="rtl" lang="ar">"يتوقع عملاؤنا تطبيقاً، ولا نعرف من أين نبدأ."</span></p>
+        <img class="chal-arrow" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+        <p class="chal-a"><span class="en">From first sketch to store launch — iOS and Android, designed and built end to end.</span><span class="ar" dir="rtl" lang="ar">من أول رسم إلى الإطلاق على المتاجر — iOS وAndroid، تصميماً وبناءً من الألف إلى الياء.</span></p>
+        <span class="chal-tag"><span class="en">Mobile Applications</span><span class="ar" dir="rtl" lang="ar">تطبيقات الجوال</span></span>
+      </div>
+
+      <div class="chal-card reveal">
+        <p class="chal-q"><span class="en">"Something breaks on launch day, and there's no one to call."</span><span class="ar" dir="rtl" lang="ar">"يتعطل شيء يوم الإطلاق، ولا يوجد من نتصل به."</span></p>
+        <img class="chal-arrow" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+        <p class="chal-a"><span class="en">A help desk that actually answers, and a team that already knows your systems.</span><span class="ar" dir="rtl" lang="ar">دعم فني يرد فعلاً، وفريق يعرف أنظمتكم مسبقاً.</span></p>
+        <span class="chal-tag"><span class="en">IT Help Desk &amp; Support</span><span class="ar" dir="rtl" lang="ar">الدعم الفني</span></span>
+      </div>
+
+      <div class="chal-card wide reveal">
+        <span class="chal-official mono">ECOMMERCE.GOV.QA · THEQA TRUSTMARK</span>
+        <p class="chal-q"><span class="en">"Shoppers hesitate to pay online because they don't recognize or trust our store."</span><span class="ar" dir="rtl" lang="ar">"يتردد المتسوقون في الدفع أونلاين لأنهم لا يعرفون متجرنا أو لا يثقون به."</span></p>
+        <img class="chal-arrow" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+        <p class="chal-a"><span class="en">We build your store to Qatar's official Theqa e-commerce trust mark and handle the certification with you — the badge that tells shoppers your store is verified.</span><span class="ar" dir="rtl" lang="ar">نبني متجركم وفق شارة الثقة (Theqa) الرسمية للتجارة الإلكترونية في قطر، ونتولى معكم إجراءات الحصول عليها — الشارة التي تُخبر المتسوقين أن متجركم موثّق.</span></p>
+        <span class="chal-tag"><span class="en">Website Development · Theqa Certification</span><span class="ar" dir="rtl" lang="ar">تطوير المواقع · شهادة الثقة (Theqa)</span></span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="band" id="services">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow reveal">
+        <img class="point-mark" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+        <span class="en">What we do</span><span class="ar" dir="rtl" lang="ar">خدماتنا</span>
+      </div>
+      <h2 class="reveal"><span class="en">Seven practices, one result.</span><span class="ar" dir="rtl" lang="ar">سبع ممارسات، نتيجة واحدة.</span></h2>
+      <p class="reveal"><span class="en">Our registered name is our service map. Each practice has a clear outcome, so clients buy a result, not a list of deliverables.</span><span class="ar" dir="rtl" lang="ar">اسمنا المسجّل هو خريطة خدماتنا. لكل ممارسة نتيجة واضحة، فالعميل يشتري نتيجة، لا قائمة من المخرجات.</span></p>
+    </div>
+    <div class="services-grid stagger">
+
+      <article class="service is-key reveal">
+        <div class="top-row"><span class="num">01</span>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.7 7.9L4 21l1.6-5.3A8.5 8.5 0 1 1 21 11.5Z"/><circle cx="9" cy="12" r=".6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r=".6" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <h3><span class="en">Consultations</span><span class="ar" dir="rtl" lang="ar">الاستشارات</span></h3>
+        <span class="outcome"><span class="en">Know what you stand for.</span><span class="ar" dir="rtl" lang="ar">اعرف ما تمثله.</span></span>
+        <span class="desc"><span class="en">Brand strategy, positioning, naming, messaging, digital strategy.</span><span class="ar" dir="rtl" lang="ar">استراتيجية العلامة، التموضع، التسمية، الرسائل، الاستراتيجية الرقمية.</span></span>
+      </article>
+
+      <article class="service reveal">
+        <div class="top-row"><span class="num">02</span>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="11" height="11" rx="3"/><rect x="9" y="9" width="11" height="11" rx="3"/></svg>
+        </div>
+        <h3><span class="en">Branding</span><span class="ar" dir="rtl" lang="ar">الهوية التجارية</span></h3>
+        <span class="outcome"><span class="en">Give it a form no one can confuse.</span><span class="ar" dir="rtl" lang="ar">امنحها شكلاً لا يمكن الخلط فيه.</span></span>
+        <span class="desc"><span class="en">Visual identity, brand guidelines, content and social design.</span><span class="ar" dir="rtl" lang="ar">الهوية البصرية، دليل العلامة، تصميم المحتوى ومنصات التواصل.</span></span>
+      </article>
+
+      <article class="service reveal">
+        <div class="top-row"><span class="num">03</span>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 9h18"/><circle cx="6.3" cy="7" r=".55" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <h3><span class="en">Website Development</span><span class="ar" dir="rtl" lang="ar">تطوير المواقع</span></h3>
+        <span class="outcome"><span class="en">Make it real where people meet you.</span><span class="ar" dir="rtl" lang="ar">اجعلها حقيقية حيث يلتقيك الناس.</span></span>
+        <span class="desc"><span class="en">UX and UI design, websites, landing pages, e-commerce, Theqa trust-mark certification, launch.</span><span class="ar" dir="rtl" lang="ar">تصميم تجربة وواجهة المستخدم، المواقع، صفحات الهبوط، التجارة الإلكترونية، شهادة الثقة (Theqa)، الإطلاق.</span></span>
+      </article>
+
+      <article class="service reveal">
+        <div class="top-row"><span class="num">04</span>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.6"/><path d="M11 18h2"/></svg>
+        </div>
+        <h3><span class="en">Mobile Applications</span><span class="ar" dir="rtl" lang="ar">تطبيقات الجوال</span></h3>
+        <span class="outcome"><span class="en">Put your service in their pocket.</span><span class="ar" dir="rtl" lang="ar">ضع خدمتك في جيوبهم.</span></span>
+        <span class="desc"><span class="en">iOS and Android apps, app design, store launch.</span><span class="ar" dir="rtl" lang="ar">تطبيقات iOS وAndroid، تصميم التطبيقات، الإطلاق على المتاجر.</span></span>
+      </article>
+
+      <article class="service reveal">
+        <div class="top-row"><span class="num">05</span>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="15" width="6" height="5.5" rx="1.2"/><rect x="9" y="9" width="6" height="11.5" rx="1.2"/><rect x="14.5" y="4" width="6" height="16.5" rx="1.2"/></svg>
+        </div>
+        <h3><span class="en">Business Applications</span><span class="ar" dir="rtl" lang="ar">تطبيقات الأعمال</span></h3>
+        <span class="outcome"><span class="en">Run the business on one system.</span><span class="ar" dir="rtl" lang="ar">شغّل عملك بنظام واحد.</span></span>
+        <span class="desc"><span class="en">ERP, CRM, workflow automation, integrations.</span><span class="ar" dir="rtl" lang="ar">أنظمة ERP وCRM، أتمتة سير العمل، الربط والتكامل.</span></span>
+      </article>
+
+      <article class="service reveal">
+        <div class="top-row"><span class="num">06</span>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17V13.5a6 6 0 0 1 12 0V17"/><path d="M3 17a2 2 0 1 0 4 0v-3H3Z"/><path d="M15 17a2 2 0 1 0 4 0v-3h-4Z"/><path d="M9 3v3"/></svg>
+        </div>
+        <h3><span class="en">Digital Marketing</span><span class="ar" dir="rtl" lang="ar">التسويق الرقمي</span></h3>
+        <span class="outcome"><span class="en">Reach the people who matter.</span><span class="ar" dir="rtl" lang="ar">صِل إلى من يهمّك أمرهم.</span></span>
+        <span class="desc"><span class="en">Social media, SEO, paid campaigns, reporting.</span><span class="ar" dir="rtl" lang="ar">منصات التواصل، تحسين محركات البحث، الحملات الممولة، التقارير.</span></span>
+      </article>
+
+      <article class="service reveal">
+        <div class="top-row"><span class="num">07</span>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="3" y="13" width="4" height="6" rx="1.6"/><rect x="17" y="13" width="4" height="6" rx="1.6"/><path d="M20 19a4 4 0 0 1-4 4h-2"/></svg>
+        </div>
+        <h3><span class="en">IT Help Desk &amp; Support</span><span class="ar" dir="rtl" lang="ar">الدعم الفني</span></h3>
+        <span class="outcome"><span class="en">Keep everything running.</span><span class="ar" dir="rtl" lang="ar">أبقِ كل شيء يعمل.</span></span>
+        <span class="desc"><span class="en">Help desk, maintenance, monitoring, user support.</span><span class="ar" dir="rtl" lang="ar">الدعم الفني، الصيانة، المراقبة، دعم المستخدمين.</span></span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="band band-tight" id="why">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow reveal">
+        <img class="point-mark" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+        <span class="en">Why work with us</span><span class="ar" dir="rtl" lang="ar">لماذا تعمل معنا</span>
+      </div>
+      <h2 class="reveal"><span class="en">Everything a growing brand needs, in one place.</span><span class="ar" dir="rtl" lang="ar">كل ما تحتاجه علامة نامية، في مكان واحد.</span></h2>
+    </div>
+    <div class="value-grid stagger">
+
+      <div class="value-card reveal">
+        <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="3.3"/><path d="M2.6 19c0-3 2.4-5.2 5.4-5.2S13.4 16 13.4 19"/><circle cx="16.6" cy="9.6" r="2.5" opacity=".55"/><path d="M14.2 13.7c2.5.3 4.4 2.2 4.4 5.3" opacity=".55"/></svg>
+        <h3><span class="en">One team, seven practices</span><span class="ar" dir="rtl" lang="ar">فريق واحد، سبع ممارسات</span></h3>
+        <p><span class="en">Strategy, identity, web, apps, marketing and support — one accountable team, not five agencies to coordinate.</span><span class="ar" dir="rtl" lang="ar">الاستراتيجية، الهوية، المواقع، التطبيقات، التسويق والدعم — فريق واحد مسؤول، لا خمس وكالات لتنسيقها.</span></p>
+      </div>
+
+      <div class="value-card reveal">
+        <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.7 2.3 4.2 5.3 4.2 8.5s-1.5 6.2-4.2 8.5c-2.7-2.3-4.2-5.3-4.2-8.5S9.3 5.8 12 3.5Z"/></svg>
+        <h3><span class="en">Bilingual, equally</span><span class="ar" dir="rtl" lang="ar">بلغتين، بالتساوي</span></h3>
+        <p><span class="en">Arabic and English get the same care and craft — never a translated afterthought.</span><span class="ar" dir="rtl" lang="ar">العربية والإنجليزية تُعاملان بالعناية والحرفية نفسها — لا ترجمة لاحقة.</span></p>
+      </div>
+
+      <div class="value-card reveal">
+        <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m15 9-2 5-5 2 2-5Z"/></svg>
+        <h3><span class="en">Built for the Gulf market</span><span class="ar" dir="rtl" lang="ar">مصمم لسوق الخليج</span></h3>
+        <p><span class="en">We design for Doha and the GCC first — not a template borrowed from somewhere else.</span><span class="ar" dir="rtl" lang="ar">نصمم لسوق الدوحة والخليج أولاً، لا قالباً مستعاراً من مكان آخر.</span></p>
+      </div>
+
+      <div class="value-card reveal">
+        <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v15M7 7h10M5 7 2.6 12.4a2.8 2.8 0 0 0 4.8 0L5 7ZM19 7l-2.4 5.4a2.8 2.8 0 0 0 4.8 0L19 7Z"/><path d="M8 21h8"/></svg>
+        <h3><span class="en">Senior judgment</span><span class="ar" dir="rtl" lang="ar">خبرة وحكمة</span></h3>
+        <p><span class="en">Calm, considered thinking. We don't chase trends or pad the invoice with jargon.</span><span class="ar" dir="rtl" lang="ar">تفكير هادئ وناضج. لا نلاحق الصيحات، ولا نُثقل الفاتورة بالمصطلحات.</span></p>
+      </div>
+
+      <div class="value-card reveal">
+        <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.4 19 6.3v5.4c0 4.6-3 7.6-7 8.4-4-.8-7-3.8-7-8.4V6.3Z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h3><span class="en">Built to last</span><span class="ar" dir="rtl" lang="ar">نبني لتدوم</span></h3>
+        <p><span class="en">A system you grow into over years — not a rebrand you need again next season.</span><span class="ar" dir="rtl" lang="ar">نظام تكبر معه عبر السنين، لا إعادة تصميم تحتاجها في الموسم القادم.</span></p>
+      </div>
+
+    </div>
+
+    <div class="why-photo reveal">
+      <img src="images/msheireb-doha.jpg" alt="Msheireb Downtown Doha, Qatar" loading="lazy">
+      <div>
+        <p class="pull"><span class="en">Doha is our home ground.</span><span class="ar" dir="rtl" lang="ar">الدوحة أرضنا.</span></p>
+        <p><span class="en">From Msheireb Downtown to Lusail's fast-rising skyline, we know the market our clients are building for — because we're building here too.</span><span class="ar" dir="rtl" lang="ar">من مشيرب داون تاون إلى أفق مدينة لوسيل سريع النمو، نعرف السوق الذي يبني فيه عملاؤنا — لأننا نبني هنا أيضاً.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="band" id="process">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow reveal">
+        <img class="point-mark" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+        <span class="en">How we work</span><span class="ar" dir="rtl" lang="ar">كيف نعمل</span>
+      </div>
+      <h2 class="reveal"><span class="en">From first call to launch.</span><span class="ar" dir="rtl" lang="ar">من أول مكالمة إلى الإطلاق.</span></h2>
+      <p class="reveal"><span class="en">Our seven practices map onto one client journey — four phases, one accountable team.</span><span class="ar" dir="rtl" lang="ar">ممارساتنا السبع تتحول إلى رحلة واحدة للعميل — أربع مراحل، وفريق واحد مسؤول.</span></p>
+    </div>
+    <div class="process-steps stagger" id="processSteps">
+      <div class="p-step reveal">
+        <span class="step-num">01 · DISCOVER</span>
+        <h3><span class="en">Find your sima</span><span class="ar" dir="rtl" lang="ar">اكتشاف سِمتك</span></h3>
+        <p><span class="en">We map your market, your audience, and what makes you different — before we design a single pixel.</span><span class="ar" dir="rtl" lang="ar">نرسم خريطة سوقك وجمهورك وما يميزك — قبل أن نصمم بكسلاً واحداً.</span></p>
+        <span class="step-tag mono"><span class="en">Consultations</span><span class="ar" dir="rtl" lang="ar">الاستشارات</span></span>
+      </div>
+      <div class="p-step reveal">
+        <span class="step-num">02 · DEFINE</span>
+        <h3><span class="en">Give it a form</span><span class="ar" dir="rtl" lang="ar">منحها شكلاً</span></h3>
+        <p><span class="en">Strategy becomes a mark: identity, guidelines and a voice your team can actually use.</span><span class="ar" dir="rtl" lang="ar">الاستراتيجية تتحول إلى علامة: هوية، دليل استخدام، وصوت يستطيع فريقك استخدامه فعلاً.</span></p>
+        <span class="step-tag mono"><span class="en">Branding</span><span class="ar" dir="rtl" lang="ar">الهوية التجارية</span></span>
+      </div>
+      <div class="p-step reveal">
+        <span class="step-num">03 · BUILD</span>
+        <h3><span class="en">Make it real</span><span class="ar" dir="rtl" lang="ar">تحويلها لواقع</span></h3>
+        <p><span class="en">We build the site, app or system where clients actually meet you — bilingual, fast, and launched, not just designed.</span><span class="ar" dir="rtl" lang="ar">نبني الموقع أو التطبيق أو النظام الذي يلتقيك فيه عملاؤك فعلاً — بلغتين، بسرعة، وجاهزاً للإطلاق لا مجرد مصمّم.</span></p>
+        <span class="step-tag mono"><span class="en">Web · Mobile · Systems</span><span class="ar" dir="rtl" lang="ar">مواقع · تطبيقات · أنظمة</span></span>
+      </div>
+      <div class="p-step reveal">
+        <span class="step-num">04 · GROW</span>
+        <h3><span class="en">Keep it running</span><span class="ar" dir="rtl" lang="ar">إبقاؤها تعمل</span></h3>
+        <p><span class="en">Campaigns that reach the right people, and a help desk that keeps it all running after launch.</span><span class="ar" dir="rtl" lang="ar">حملات تصل إلى من يهمّك أمرهم، ودعم فني يبقي كل شيء يعمل بعد الإطلاق.</span></p>
+        <span class="step-tag mono"><span class="en">Marketing · Support</span><span class="ar" dir="rtl" lang="ar">تسويق · دعم</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / NAME -->
+<section class="band-tight" id="about">
+  <div class="wrap about-body">
+    <div class="eyebrow reveal">
+      <img class="point-mark" src="assets/qalam-saffron.svg" alt="" aria-hidden="true">
+      <span class="en">The name behind Seema</span><span class="ar" dir="rtl" lang="ar">الاسم وراء سيمة</span>
+    </div>
+    <h2 class="reveal" style="font-size:clamp(22px,2.8vw,30px);margin-top:12px"><span class="en">One dot changes everything.</span><span class="ar" dir="rtl" lang="ar">نقطة واحدة تغيّر كل شيء.</span></h2>
+    <p class="body-p reveal">
+      <span class="en">In early Arabic script, one shape could be read five ways. Scholars added dots — i‘jām — and each letter found its own identity. Seema (سيمة) means that distinguishing mark. It's what we find for every brand we work with.</span>
+      <span class="ar" dir="rtl" lang="ar">في الخط العربي المبكر، كان الشكل الواحد يُقرأ بخمس طرق. أضاف العلماء نقاطاً — الإعجام — فوجد كل حرف هويته. سيمة تعني تلك العلامة المميزة. وهي ما نكتشفه لكل علامة نعمل معها.</span>
+    </p>
+    <div class="reveal" style="display:flex;align-items:baseline;flex-wrap:wrap">
+      <div class="letters-row"><span>ب</span><span>ت</span><span>ث</span><span>ن</span><span>ي</span></div>
+      <span class="letters-cap"><span class="en">Five letters. The dots make the difference.</span><span class="ar" dir="rtl" lang="ar">خمسة حروف. النقاط هي الفرق.</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="band" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div>
+        <div class="eyebrow" style="color:var(--qahwa)">
+          <img class="point-mark" src="assets/qalam-saffron.svg" alt="" aria-hidden="true" style="transform:scale(1) rotate(-8deg)">
+          <span class="en">Let's find your sima</span><span class="ar" dir="rtl" lang="ar">لنكتشف سِمتك</span>
+        </div>
+        <h2><span class="en">Start a project this week.</span><span class="ar" dir="rtl" lang="ar">ابدأ مشروعك هذا الأسبوع.</span></h2>
+        <p><span class="en">Tell us about the brand you're building. We reply within one business day, in Arabic or English.</span><span class="ar" dir="rtl" lang="ar">أخبرنا عن العلامة التي تبنيها. سنرد خلال يوم عمل واحد، بالعربية أو الإنجليزية.</span></p>
+        <div class="cta-row" style="margin-top:24px;margin-bottom:0">
+          <a class="btn btn-saffron" href="mailto:hello@seema.qa">
+            <span class="en">Email hello@seema.qa</span><span class="ar" dir="rtl" lang="ar">راسلنا hello@seema.qa</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="contact-list">
+        <a href="mailto:hello@seema.qa"><span class="k mono en">Email</span><span class="k ar" dir="rtl" lang="ar">البريد الإلكتروني</span><span class="v">hello@seema.qa</span></a>
+        <a href="https://seema.qa" target="_blank" rel="noopener"><span class="k mono en">Website</span><span class="k ar" dir="rtl" lang="ar">الموقع</span><span class="v mono">seema.qa</span></a>
+        <a href="#top"><span class="k mono en">Based in</span><span class="k ar" dir="rtl" lang="ar">المقر</span><span class="v"><span class="en">Doha, Qatar</span><span class="ar" dir="rtl" lang="ar">الدوحة، قطر</span></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINALE : big -->
+<section class="finale" id="finale">
+  <span class="finale-bg" aria-hidden="true"></span>
+  <div class="wrap">
+    <img class="fin-logo" src="assets/logo-stack-onember.svg" alt="Seema · سيمة">
+    <p class="fin-tag"><span class="en">The mark that makes the difference.</span><span class="ar" dir="rtl" lang="ar">العلامة التي تصنع الفرق.</span></p>
+    <p class="fin-url mono">SEEMA.QA</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <img class="logo-img" src="assets/logo-horiz-bone.svg" alt="Seema · سيمة" style="height:24px">
+        <p><span class="en">Seema for Consultations, Digital Services and Website Design.</span><span class="ar" dir="rtl" lang="ar">سيمة للاستشارات والخدمات الرقمية وتصميم المواقع الإلكترونية.</span></p>
+      </div>
+      <div class="fcol">
+        <h4><span class="en">Explore</span><span class="ar" dir="rtl" lang="ar">استكشف</span></h4>
+        <a href="#why"><span class="en">Why us</span><span class="ar" dir="rtl" lang="ar">لماذا نحن</span></a>
+        <a href="#services"><span class="en">Services</span><span class="ar" dir="rtl" lang="ar">الخدمات</span></a>
+        <a href="#process"><span class="en">Process</span><span class="ar" dir="rtl" lang="ar">أسلوب العمل</span></a>
+        <a href="#about"><span class="en">About the name</span><span class="ar" dir="rtl" lang="ar">عن الاسم</span></a>
+        <a href="#contact"><span class="en">Contact</span><span class="ar" dir="rtl" lang="ar">تواصل</span></a>
+      </div>
+      <div class="fcol">
+        <h4><span class="en">Contact</span><span class="ar" dir="rtl" lang="ar">تواصل</span></h4>
+        <a href="mailto:hello@seema.qa">hello@seema.qa</a>
+        <a href="https://seema.qa" target="_blank" rel="noopener">seema.qa</a>
+        <span><span class="en">Doha, Qatar</span><span class="ar" dir="rtl" lang="ar">الدوحة، قطر</span></span>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© <span id="yr">2026</span> <span class="en">Seema. All rights reserved.</span><span class="ar" dir="rtl" lang="ar">سيمة. جميع الحقوق محفوظة.</span></span>
+      <span class="type-credit">Manrope · El Messiri · Tajawal · JetBrains Mono</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll progress bar
+  var progress = document.getElementById('scrollProgress');
+  var hdr = document.getElementById('hdr');
+  function onScroll(){
+    hdr.classList.toggle('scrolled', window.scrollY > 12);
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+
+  // mobile nav
+  var toggle = document.getElementById('toggle');
+  toggle.addEventListener('click', function(){
+    var open = document.body.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('#nav a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.body.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // language toggle — a real page-wide switch, not simultaneous bilingual
+  var langToggle = document.getElementById('langToggle');
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    langToggle.textContent = (lang === 'ar') ? 'English' : 'العربية';
+  }
+  setLang('en');
+  langToggle.addEventListener('click', function(){
+    setLang(document.documentElement.lang === 'ar' ? 'en' : 'ar');
+  });
+
+  var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // subtle hero parallax
+  if (!reduceMotion){
+    var heroGlow = document.getElementById('heroGlow');
+    var hero = document.querySelector('.hero');
+    hero.addEventListener('mousemove', function(e){
+      var x = (e.clientX / innerWidth - .5) * 22;
+      var y = (e.clientY / innerHeight - .5) * 22;
+      heroGlow.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    });
+  }
+
+  // scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold: .15});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // doha band reveal (image scale-down)
+  var dohaBand = document.getElementById('dohaBand');
+  var dio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting){ dohaBand.classList.add('in'); dio.unobserve(dohaBand); } });
+  }, {threshold:.2});
+  dio.observe(dohaBand);
+
+  // process connector line
+  var processSteps = document.getElementById('processSteps');
+  var pio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting){ processSteps.classList.add('in'); pio.unobserve(processSteps); } });
+  }, {threshold:.3});
+  pio.observe(processSteps);
+
+  // finale replay of the point → bloom → field motif
+  var finale = document.getElementById('finale');
+  var fio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting){ finale.classList.add('in'); fio.unobserve(finale); } });
+  }, {threshold:.35});
+  fio.observe(finale);
+
+  // remove the load bloom veil once its animation ends (keeps DOM light, avoids any interaction shadow)
+  var veil = document.getElementById('bloomVeil');
+  if (veil){
+    veil.addEventListener('animationend', function(){ veil.remove(); });
+    setTimeout(function(){ if (veil.parentNode) veil.remove(); }, 2200);
+  }
+
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
