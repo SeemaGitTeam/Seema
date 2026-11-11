@@ -1,0 +1,43 @@
+# file	kind	crumb	title	description (empty = keep current)
+index.html	home	Home	Seema | Branding, Website & App Development Agency in Qatar	Doha-based agency for brand strategy, bilingual identity, website and app development, ERP systems and IT support for businesses in Qatar and the GCC.
+home.html	home	Home	Seema | Branding, Website & App Development Agency in Qatar	Doha-based agency for brand strategy, bilingual identity, website and app development, ERP systems and IT support for businesses in Qatar and the GCC.
+about.html	page	About	About Seema | Strategy & Digital Consultancy in Doha, Qatar
+services.html	page	Services	Branding, Web, App, ERP & IT Services in Qatar | Seema	Seven services under one roof in Doha: consulting, branding, website development, mobile apps, business systems, digital marketing and IT support.
+work.html	page	Work	Our Work: Branding & Digital Case Studies in Qatar | Seema
+insights.html	page	Insights	Insights on Branding, Websites & Business Systems | Seema
+contact.html	page	Contact	Contact Seema | Branding & Digital Agency in Doha, Qatar
+service-consultations.html	service	Consultations	Brand Strategy & Business Consulting in Qatar | Seema	Brand and business strategy consulting in Doha. We research your market and define the one idea that sets you apart, in Arabic and English.
+service-branding.html	service	Branding	Branding Agency in Qatar | Bilingual Brand Identity | Seema	Brand identity design in Doha: logo, Arabic and Latin typography, colour and guidelines, designed together from the first sketch for businesses in Qatar.
+service-websites.html	service	Website Development	Website Design & Development in Qatar | Seema	Fast, accessible bilingual websites built in Doha, with Arabic laid out right to left properly, not mirrored. Website design and development for Qatar.
+service-mobile.html	service	Mobile Applications	Mobile App Development in Qatar | iOS & Android | Seema	iOS and Android app development in Doha, from user journey to App Store approval, with every screen designed in Arabic and English from the start.
+service-business-apps.html	service	Business Applications	ERP & Business Applications in Qatar | Seema	ERP and business system implementation in Qatar: inventory, sales, accounting and HR on one connected system, configured around your process.
+service-marketing.html	service	Digital Marketing	Digital Marketing Agency in Qatar | Seema	Bilingual digital marketing in Qatar: campaigns, social media and paid ads that sound like your brand, reported on business results, not likes.
+service-support.html	service	IT Help Desk & Support	IT Help Desk & Support Services in Qatar | Seema	Managed IT support in Doha: responsive help desk, monitoring and scheduled maintenance for the systems and websites your business relies on.
+case-clinic-network.html	case	Clinic network	Clinic Network Online Booking Case Study | Seema
+case-cultural-initiative.html	case	Cultural initiative	Cultural Initiative Digital Campaign Case Study | Seema
+case-hospitality-group.html	case	Hospitality group	Hospitality Group Brand Identity Case Study | Seema
+case-trading-house.html	case	Trading house	Trading House ERP: From Spreadsheets to One System | Seema
+insight-bilingual-is-not-translated.html	article	Bilingual is not translated	Bilingual Is Not Translated: Arabic & English Brand Design | Seema
+insight-three-questions-before-your-website.html	article	Three questions before your website	3 Questions to Answer Before You Design Your Website | Seema
+insight-when-to-replace-spreadsheets.html	article	When to replace spreadsheets	When to Replace Spreadsheets with an ERP System | Seema	Five signs your spreadsheets have stopped saving time and started costing it, and when a business in Qatar should move to an ERP system.
+ar/index.html	home	الرئيسية	سيمة | وكالة تصميم الهوية والمواقع والتطبيقات في قطر	وكالة في الدوحة لاستراتيجية العلامة والهوية التجارية وتصميم المواقع والتطبيقات وأنظمة ERP والدعم الفني للشركات في قطر والخليج.
+ar/home.html	home	الرئيسية	سيمة | وكالة تصميم الهوية والمواقع والتطبيقات في قطر	وكالة في الدوحة لاستراتيجية العلامة والهوية التجارية وتصميم المواقع والتطبيقات وأنظمة ERP والدعم الفني للشركات في قطر والخليج.
+ar/about.html	page	من نحن	من نحن | سيمة للاستشارات والخدمات الرقمية في الدوحة
+ar/services.html	page	خدماتنا	خدماتنا: الهوية والمواقع والتطبيقات والدعم الفني في قطر | سيمة	سبع خدمات تحت سقف واحد في الدوحة: الاستشارات، الهوية التجارية، تطوير المواقع، تطبيقات الجوال، أنظمة الأعمال، التسويق الرقمي والدعم الفني.
+ar/work.html	page	أعمالنا	أعمالنا: دراسات حالة في الهوية والتحول الرقمي | سيمة
+ar/insights.html	page	رؤى	رؤى في الهوية والمواقع وأنظمة الأعمال | سيمة
+ar/contact.html	page	تواصل معنا	تواصل مع سيمة | وكالة الهوية والخدمات الرقمية في الدوحة
+ar/service-consultations.html	service	الاستشارات	استشارات استراتيجية العلامة والأعمال في قطر | سيمة	استشارات استراتيجية العلامة والأعمال في الدوحة: ندرس السوق ونحدد الفكرة التي تميّزك، بالعربية والإنجليزية.
+ar/service-branding.html	service	الهوية التجارية	تصميم الهوية التجارية في قطر | سيمة	تصميم الهوية التجارية في الدوحة: الشعار والخط العربي واللاتيني والألوان ودليل الهوية، مصممة معاً من أول رسم للشركات في قطر.
+ar/service-websites.html	service	تطوير المواقع الإلكترونية	تصميم وتطوير المواقع الإلكترونية في قطر | سيمة	تصميم وتطوير مواقع إلكترونية سريعة وثنائية اللغة في الدوحة، بعربية مصممة من اليمين إلى اليسار بإيقاعها الخاص، لا نسخة معكوسة.
+ar/service-mobile.html	service	تطبيقات الجوال	تطوير تطبيقات الجوال في قطر | iOS وAndroid | سيمة	تطوير تطبيقات iOS وAndroid في الدوحة، من رحلة المستخدم حتى النشر في المتاجر، بكل شاشة مصممة بالعربية والإنجليزية من البداية.
+ar/service-business-apps.html	service	تطبيقات الأعمال	أنظمة ERP وتطبيقات الأعمال في قطر | سيمة	تطبيق أنظمة ERP في قطر: المخزون والمبيعات والمحاسبة والموارد البشرية في نظام واحد مترابط، مهيأ حول طريقة عملك.
+ar/service-marketing.html	service	التسويق الرقمي	التسويق الرقمي في قطر | سيمة	تسويق رقمي ثنائي اللغة في قطر: حملات ووسائل تواصل وإعلانات مدفوعة بصوت علامتك، مع تقارير عن نتائج العمل لا عن الإعجابات.
+ar/service-support.html	service	الدعم الفني	الدعم الفني وخدمات تقنية المعلومات في قطر | سيمة	دعم فني مُدار في الدوحة: مكتب مساعدة سريع الاستجابة ومراقبة وصيانة دورية للأنظمة والمواقع التي يعتمد عليها عملك.
+ar/case-clinic-network.html	case	شبكة عيادات	شبكة عيادات يصل إليها المريض بلمستين | دراسة حالة | سيمة
+ar/case-cultural-initiative.html	case	مبادرة ثقافية	مبادرة ثقافية تخاطب جيلاً جديداً | دراسة حالة | سيمة
+ar/case-hospitality-group.html	case	مجموعة ضيافة	مجموعة ضيافة تُبنى حول طقس الترحيب | دراسة حالة | سيمة
+ar/case-trading-house.html	case	بيت تجاري	من الجداول إلى نظام ERP واحد | دراسة حالة | سيمة
+ar/insight-bilingual-is-not-translated.html	article	ثنائية اللغة ليست ترجمة	ثنائية اللغة ليست ترجمة: العربية والإنجليزية بالتساوي | سيمة
+ar/insight-three-questions-before-your-website.html	article	ثلاثة أسئلة قبل موقعك	ثلاثة أسئلة أجب عنها قبل أن تصمّم موقعك | سيمة
+ar/insight-when-to-replace-spreadsheets.html	article	متى تستبدل الجداول	متى يحين وقت استبدال الجداول بنظام ERP؟ | سيمة

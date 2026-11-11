@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /images/_raw/
+Disallow: /images/_raw2/
+Disallow: /images/_raw3/
+Disallow: /tools/
+
+Sitemap: https://seema.qa/sitemap.xml
