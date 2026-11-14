@@ -1,0 +1,30 @@
+# Seema
+
+> Seema (سيمة) is a branding, website, mobile app, and ERP company in Doha, Qatar. Seema helps businesses in Qatar and the Gulf grow with a stronger brand, a better digital experience, and smarter systems, in Arabic and English.
+
+- Address: 7th Floor, Al Gassar Tower, West Bay, Doha, Qatar
+- Phone: +974 6634 5802
+- Email: hello@seema.qa
+- Hours: Sunday to Thursday, 8:00 AM to 5:00 PM
+- Founded: 2026
+- Legal name: Seema for Consultations, Digital Services and Website Design
+- Arabic site: https://seema.qa/ar/
+
+## Services
+- [Brand Strategy and Consulting](https://seema.qa/service-consultations.html)
+- [Branding and Visual Identity](https://seema.qa/service-branding.html)
+- [Website Design and Development](https://seema.qa/service-websites.html)
+- [Mobile App Development](https://seema.qa/service-mobile.html)
+- [ERP, CRM, and Business Systems](https://seema.qa/service-business-apps.html)
+- [Digital Marketing, SEO, and Social Media](https://seema.qa/service-marketing.html)
+- [IT Help Desk and Support](https://seema.qa/service-support.html)
+
+## Products
+- Seema One: business platform for Qatar (HR, WPS payroll, finance, sales, projects, operations)
+- RFID solutions: tracking for assets, files, vehicles, staff, libraries, patrols, stock, and jewellery
+
+## More
+- [About Seema](https://seema.qa/about.html)
+- [Work and case studies](https://seema.qa/work.html)
+- [Insights](https://seema.qa/insights.html)
+- [Contact and FAQ](https://seema.qa/contact.html)
